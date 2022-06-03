@@ -1,0 +1,72 @@
+﻿@page "/Seller/{SellerID}"
+@using BlazorApp1.Services
+
+@code {
+    [Parameter]
+    public string SellerId { get; set; }
+    public List<Data.Models.Seller> Sellers { get; set; }
+    public Data.Models.Seller? CurrentSeller { get; set; }
+    [Inject]
+    private ISellerProvider сarPartProvider { get; set; }
+    protected async override Task OnInitializedAsync()
+    {
+        CurrentSeller = await сarPartProvider.GetOne(Int32.Parse(SellerId));
+        Sellers = await сarPartProvider.GetAll();
+        Console.WriteLine(CurrentSeller);
+        base.OnInitialized();
+    }
+}
+
+
+<h3>Информация о запчасти</h3>
+@if (CurrentSeller != null)
+{
+    <div class="sellerBlock">
+        <div class="field">
+            <label class="label">Идентификатор</label> <input class="form-control valueField" type="text" value="@CurrentSeller.ID" aria-label="Disabled input example" disabled readonly>
+        </div>
+        <div class="field">
+            <label class="label">Название</label> <input class="form-control valueField" type="text" value="@CurrentSeller.Fullname" aria-label="Disabled input example" disabled readonly>
+        </div>
+        <div class="field">
+            <label class="label">Бренд</label> <input class="form-control valueField" type="text" value="@CurrentSeller.Position" aria-label="Disabled input example" disabled readonly>
+        </div>
+        <div class="field">
+            <label class="label">Модель</label> <input class="form-control valueField" type="text" value="@CurrentSeller.NumOfSales" aria-label="Disabled input example" disabled readonly>
+        </div>
+        
+    </div>
+    <h3>Продавцы</h3>
+    <table class="table">
+        <thead>
+        <th >ФИО</th>
+        <th >Звание</th>
+        <th >Оценка</th>
+        <th>Количество продаж</th>
+        <th>Запчасти</th>
+        </thead>
+        <tbody>
+        @foreach (var cp in CurrentSeller.SСParts)
+        {
+            <tr >
+                <td>@cp.Name</td>
+                <td>@cp.BrandOfAuto</td>
+                <td>@cp.ModelOfAuto</td>
+                <td>@cp.Price</td>
+                <td>
+                    <div class="cpSellers">
+                        @foreach (var cpSeller in Sellers)
+                        {
+                            if (cpSeller.SСParts.Any(x => x.Id == cp.Id))
+                            {
+                                <span class="sellerTag">@cpSeller.Fullname</span>
+                            }
+                        }
+                    </div >
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+    
+}

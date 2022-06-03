@@ -1,0 +1,46 @@
+﻿@using BlazorApp1.Data.Models
+@using BlazorApp1.Services
+@inject NavigationManager _navigationManager
+
+@code{
+    private List<Seller>? selllers;
+    [Inject]
+    private SellerProvider sellersProvider { get; set; }
+    protected override async Task OnInitializedAsync()
+    {
+        selllers = await sellersProvider.GetAll();
+    }
+    public void toItem(Seller seller)
+    {
+        _navigationManager.NavigateTo($"/Author/{seller.ID}");
+    }
+}
+
+
+<h1>Список запчастей</h1>
+<table class="table">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Brand of auto</th>
+        <th>Model of auto</th>
+        <th>Price</th>
+    </tr>
+    </thead>
+    <tbody>
+    @if (selllers != null)
+    {
+        @foreach (var seller in selllers)
+        {
+            <tr  @onclick="()=>toItem(seller)">
+                <td>@seller.ID</td>
+                <td>@seller.Fullname</td>
+                <td>@seller.Position</td>
+                <td>@seller.Grade</td>
+                <td>@seller.NumOfSales</td>
+            </tr>
+        }
+    }
+    </tbody>
+</table>

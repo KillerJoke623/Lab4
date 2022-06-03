@@ -1,0 +1,74 @@
+﻿@page "/CarPart/{CarPartId}"
+@using BlazorApp1.Services
+
+@code {
+    [Parameter]
+    public string CarPartId { get; set; }
+    public List<Data.Models.CarPart> CarParts { get; set; }
+    public Data.Models.CarPart? CurrentCarPart { get; set; }
+    [Inject]
+    private ICarPartProvider сarPartProvider { get; set; }
+    protected async override Task OnInitializedAsync()
+    {
+        CurrentCarPart = await сarPartProvider.GetOne(Int32.Parse(CarPartId));
+        CarParts = await сarPartProvider.GetAll();
+        Console.WriteLine(CurrentCarPart);
+        base.OnInitialized();
+    }
+}
+
+
+<h3>Информация о запчасти</h3>
+@if (CurrentCarPart != null)
+{
+    <div class="carPartsBlock">
+        <div class="field">
+            <label class="label">Идентификатор</label> <input class="form-control valueField" type="text" value="@CurrentCarPart.Id" aria-label="Disabled input example" disabled readonly>
+        </div>
+        <div class="field">
+            <label class="label">Название</label> <input class="form-control valueField" type="text" value="@CurrentCarPart.Name" aria-label="Disabled input example" disabled readonly>
+        </div>
+        <div class="field">
+            <label class="label">Бренд</label> <input class="form-control valueField" type="text" value="@CurrentCarPart.BrandOfAuto" aria-label="Disabled input example" disabled readonly>
+        </div>
+        <div class="field">
+            <label class="label">Модель</label> <input class="form-control valueField" type="text" value="@CurrentCarPart.ModelOfAuto" aria-label="Disabled input example" disabled readonly>
+        </div>
+        <div class="field">
+            <label class="label">Цена</label> <input class="form-control valueField" type="text" value="@CurrentCarPart.Price" aria-label="Disabled input example" disabled readonly>
+            </div>
+    </div>
+    <h3>Продавцы</h3>
+    <table class="table">
+        <thead>
+        <th >ФИО</th>
+        <th >Звание</th>
+        <th >Оценка</th>
+        <th>Количество продаж</th>
+        <th>Детали</th>
+        </thead>
+        <tbody>
+        @foreach (var sel in CurrentCarPart.Sellers)
+        {
+            <tr >
+                <td>@sel.Fullname</td>
+                <td>@sel.Position</td>
+                <td>@sel.NumOfSales</td>
+                <td>@sel.Grade</td>
+                <td>
+                    <div class="selCarParts">
+                        @foreach (var selCarPart in CarParts)
+                        {
+                            if (selCarPart.Sellers.Any(x => x.ID == sel.ID))
+                            {
+                                <span class="carPartTag">@selCarPart.Name</span>
+                            }
+                        }
+                    </div >
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+    
+}

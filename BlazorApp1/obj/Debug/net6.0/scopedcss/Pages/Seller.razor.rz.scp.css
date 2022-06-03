@@ -1,0 +1,26 @@
+.field[b-hkzr1cnip4] {
+    display: flex;
+    flex-direction: row;
+    margin: 10px;
+}
+.sellerBlock[b-hkzr1cnip4] {
+    display: flex;
+    flex-direction: column;
+}
+.label[b-hkzr1cnip4] {
+    width: 200px;
+}
+.valueField[b-hkzr1cnip4] {
+    width: 400px;
+}
+.cpSellers[b-hkzr1cnip4] {
+    display: flex;
+    flex-direction: column;
+}
+.sellerTag[b-hkzr1cnip4] {
+    padding: 5px;
+    margin-top: 5px;
+    border: 1px solid #8b008bff;
+    border-radius: 8px;
+    background-color: #ff00ff44;
+}

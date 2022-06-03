@@ -1,0 +1,46 @@
+﻿@using BlazorApp1.Data.Models
+@using BlazorApp1.Services
+@inject NavigationManager _navigationManager
+
+@code{
+    private List<CarPart>? carparts;
+    [Inject]
+    private ICarPartProvider carpartsProvider { get; set; }
+    protected override async Task OnInitializedAsync()
+    {
+        carparts = await carpartsProvider.GetAll();
+    }
+    public void toItem(CarPart carPart)
+    {
+        _navigationManager.NavigateTo($"/Author/{carPart.Id}");
+    }
+}
+
+
+<h1>Список запчастей</h1>
+<table class="table">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Brand of auto</th>
+        <th>Model of auto</th>
+        <th>Price</th>
+    </tr>
+    </thead>
+    <tbody>
+    @if (carparts != null)
+    {
+        @foreach (var carpart in carparts)
+        {
+            <tr  @onclick="()=>toItem(carpart)">
+                <td>@carpart.Id</td>
+                <td>@carpart.Name</td>
+                <td>@carpart.BrandOfAuto</td>
+                <td>@carpart.ModelOfAuto</td>
+                <td>@carpart.Price</td>
+            </tr>
+        }
+    }
+    </tbody>
+</table>
