@@ -1592,23 +1592,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\glebz\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\Gleb\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\glebz\\RiderProjects\\Lab4\\BlazorApp1\\BlazorApp1.csproj",
+      "projectUniqueName": "C:\\Users\\Gleb\\RiderProjects\\Lab4\\BlazorApp1\\BlazorApp1.csproj",
       "projectName": "BlazorApp1",
-      "projectPath": "C:\\Users\\glebz\\RiderProjects\\Lab4\\BlazorApp1\\BlazorApp1.csproj",
-      "packagesPath": "C:\\Users\\glebz\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\glebz\\RiderProjects\\Lab4\\BlazorApp1\\obj\\",
+      "projectPath": "C:\\Users\\Gleb\\RiderProjects\\Lab4\\BlazorApp1\\BlazorApp1.csproj",
+      "packagesPath": "C:\\Users\\Gleb\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Gleb\\RiderProjects\\Lab4\\BlazorApp1\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\glebz\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\Gleb\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
@@ -1659,7 +1655,7 @@
         "downloadDependencies": [
           {
             "name": "Microsoft.NETCore.App.Runtime.Mono.browser-wasm",
-            "version": "[6.0.5, 6.0.5]"
+            "version": "[6.0.4, 6.0.4]"
           }
         ],
         "frameworkReferences": {
@@ -1667,7 +1663,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
       }
     },
     "runtimes": {

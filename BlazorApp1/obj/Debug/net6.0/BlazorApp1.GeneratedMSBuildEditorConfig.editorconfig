@@ -11,53 +11,53 @@ build_property.EnableTrimAnalyzer = true
 build_property.IncludeAllContentForSelfExtract = 
 build_property.RootNamespace = BlazorApp1
 build_property.RootNamespace = BlazorApp1
-build_property.ProjectDir = C:\Users\glebz\RiderProjects\Lab4\BlazorApp1\
+build_property.ProjectDir = C:\Users\Gleb\RiderProjects\Lab4\BlazorApp1\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\glebz\RiderProjects\Lab4\BlazorApp1
+build_property.MSBuildProjectDirectory = C:\Users\Gleb\RiderProjects\Lab4\BlazorApp1
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/glebz/RiderProjects/Lab4/BlazorApp1/App.razor]
+[C:/Users/Gleb/RiderProjects/Lab4/BlazorApp1/App.razor]
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/glebz/RiderProjects/Lab4/BlazorApp1/Pages/Index.razor]
+[C:/Users/Gleb/RiderProjects/Lab4/BlazorApp1/Pages/Index.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/glebz/RiderProjects/Lab4/BlazorApp1/Pages/LinkSellersList.razor]
+[C:/Users/Gleb/RiderProjects/Lab4/BlazorApp1/Pages/LinkSellersList.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTGlua1NlbGxlcnNMaXN0LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/glebz/RiderProjects/Lab4/BlazorApp1/Shared/SurveyPrompt.razor]
+[C:/Users/Gleb/RiderProjects/Lab4/BlazorApp1/Shared/SurveyPrompt.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFN1cnZleVByb21wdC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/glebz/RiderProjects/Lab4/BlazorApp1/_Imports.razor]
+[C:/Users/Gleb/RiderProjects/Lab4/BlazorApp1/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/glebz/RiderProjects/Lab4/BlazorApp1/Components/CarPartsList/CarPartsList.razor]
+[C:/Users/Gleb/RiderProjects/Lab4/BlazorApp1/Components/CarPartsList/CarPartsList.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xDYXJQYXJ0c0xpc3RcQ2FyUGFydHNMaXN0LnJhem9y
 build_metadata.AdditionalFiles.CssScope = b-0xkotcltbw
 
-[C:/Users/glebz/RiderProjects/Lab4/BlazorApp1/Components/SellersList/SellerList.razor]
+[C:/Users/Gleb/RiderProjects/Lab4/BlazorApp1/Components/SellersList/SellerList.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xTZWxsZXJzTGlzdFxTZWxsZXJMaXN0LnJhem9y
 build_metadata.AdditionalFiles.CssScope = b-qmw9qhvh8n
 
-[C:/Users/glebz/RiderProjects/Lab4/BlazorApp1/Pages/CarPart.razor]
+[C:/Users/Gleb/RiderProjects/Lab4/BlazorApp1/Pages/CarPart.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2FyUGFydC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-4bfmmwkm8j
 
-[C:/Users/glebz/RiderProjects/Lab4/BlazorApp1/Pages/Seller.razor]
+[C:/Users/Gleb/RiderProjects/Lab4/BlazorApp1/Pages/Seller.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2VsbGVyLnJhem9y
 build_metadata.AdditionalFiles.CssScope = b-hkzr1cnip4
 
-[C:/Users/glebz/RiderProjects/Lab4/BlazorApp1/Shared/MainLayout.razor]
+[C:/Users/Gleb/RiderProjects/Lab4/BlazorApp1/Shared/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-45rkf8v3vv
 
-[C:/Users/glebz/RiderProjects/Lab4/BlazorApp1/Shared/NavMenu.razor]
+[C:/Users/Gleb/RiderProjects/Lab4/BlazorApp1/Shared/NavMenu.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE5hdk1lbnUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-b5wscdn8ts
