@@ -28,7 +28,7 @@ public class EducationContext:DbContext
         modelBuilder.Entity<CarPart>().Property(cp => cp.Id).ValueGeneratedOnAdd();
         modelBuilder.Entity<Seller>().Property(sl => sl.ID).ValueGeneratedOnAdd();
         //modelBuilder.Entity<Customer>().HasMany(cu => cu.CСParts).WithMany(cp => cp.Customers);
-        modelBuilder.Entity<Seller>().HasMany(sl => sl.SСParts).WithMany(cp => cp.Sellers);
+        modelBuilder.Entity<Seller>().HasMany(sl => sl.ScParts).WithMany(cp => cp.Sellers);
 
     }
 

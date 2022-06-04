@@ -22,7 +22,7 @@ public class Seller
     public int NumOfSales { get; set; }
     
     [MaybeNull]
-    public IEnumerable<CarPart> SСParts { get; set; }
+    public IEnumerable<CarPart> ScParts { get; set; }
     
     
 

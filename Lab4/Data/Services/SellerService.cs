@@ -29,7 +29,7 @@ public class SellerService
         };
         if (seller.SCParts.Any())
         {
-            nSeller.SСParts  = _context.CarParts.ToList().IntersectBy(seller.SCParts, part => part.Id);
+            nSeller.ScParts  = _context.CarParts.ToList().IntersectBy(seller.SCParts, part => part.Id);
         }
         
         var result = _context.Sellers.Add(nSeller);
@@ -47,7 +47,7 @@ public class SellerService
         return await Task.FromResult(result);
         */
         
-        var result = _context.Sellers.Include(s=>s.SСParts).FirstOrDefault(sel => sel.ID==id);
+        var result = _context.Sellers.Include(s=>s.ScParts).FirstOrDefault(sel => sel.ID==id);
     
         return await Task.FromResult(result);
 
@@ -58,7 +58,7 @@ public class SellerService
         //Lab4
         //return await Task.FromResult(DataSource.GetInstance()._sellers);
         
-        var result = await _context.Sellers.Include(a=>a.SСParts).ToListAsync();
+        var result = await _context.Sellers.Include(a=>a.ScParts).ToListAsync();
         return await Task.FromResult(result);
 
     }
@@ -87,15 +87,15 @@ public class SellerService
         }
         return seller;
         */
-        var seller = await _context.Sellers.Include(sel=>sel.SСParts).FirstOrDefaultAsync(se => se.ID == id);
+        var seller = await _context.Sellers.Include(sel=>sel.ScParts).FirstOrDefaultAsync(se => se.ID == id);
         if (seller != null)
         {
             seller.Fullname = newSeller.Fullname;
             seller.Position = newSeller.Position;
             seller.Grade = newSeller.Grade;
-            if (newSeller.SСParts.Any())
+            if (newSeller.ScParts.Any())
             {
-                seller.SСParts = _context.CarParts.ToList().IntersectBy(newSeller.SСParts, carp => carp).ToList();
+                seller.ScParts = _context.CarParts.ToList().IntersectBy(newSeller.ScParts, carp => carp).ToList();
             }
 
             _context.Sellers.Update(seller);
