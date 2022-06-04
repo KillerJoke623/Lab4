@@ -10,6 +10,7 @@ public class CustomerService
     {
         _context = context;
     }
+    //TODO create DTO of Customer to get rid of input id
     public async Task<Customer> AddCustomer(Customer customer)
     {
         /*

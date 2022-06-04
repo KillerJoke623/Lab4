@@ -5,7 +5,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace Lab4.Migrations
 {
-    public partial class NWork : Migration
+    public partial class Update : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -59,15 +59,15 @@ namespace Lab4.Migrations
                 name: "car_part_seller",
                 columns: table => new
                 {
-                    sellers_id = table.Column<int>(type: "integer", nullable: false),
-                    sс_parts_id = table.Column<int>(type: "integer", nullable: false)
+                    sc_parts_id = table.Column<int>(type: "integer", nullable: false),
+                    sellers_id = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("pk_car_part_seller", x => new { x.sellers_id, x.sс_parts_id });
+                    table.PrimaryKey("pk_car_part_seller", x => new { x.sc_parts_id, x.sellers_id });
                     table.ForeignKey(
-                        name: "fk_car_part_seller_car_parts_sс_parts_id",
-                        column: x => x.sс_parts_id,
+                        name: "fk_car_part_seller_car_parts_sc_parts_id",
+                        column: x => x.sc_parts_id,
                         principalTable: "car_parts",
                         principalColumn: "id",
                         onDelete: ReferentialAction.Cascade);
@@ -80,9 +80,9 @@ namespace Lab4.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "ix_car_part_seller_sс_parts_id",
+                name: "ix_car_part_seller_sellers_id",
                 table: "car_part_seller",
-                column: "sс_parts_id");
+                column: "sellers_id");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

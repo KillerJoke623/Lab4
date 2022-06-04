@@ -14,6 +14,7 @@ public class SellerService
     }
     
     //POST
+    //BUG The type of navigation 'Seller.ScParts' is '<IntersectByIterator>d__118<CarPart, int>' which does not implement 'ICollection<CarPart>'. Collection navigations must implement 'ICollection<>' of the target type.
     public async Task<Seller> AddSeller(SellerDTO seller)
     {
         /* Лаб4

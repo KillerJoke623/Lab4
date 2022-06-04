@@ -11,6 +11,7 @@ public class CarPartService
     {
         _context = context;
     }
+    //BUG The type of navigation 'CarPart.Sellers' is '<IntersectByIterator>d__118<Seller, int>' which does not implement 'ICollection<Seller>'. Collection navigations must implement 'ICollection<>' of the target type.
     public async Task<CarPart> AddCarPart(CarPartDTO carPart)
     {
         //Lab4

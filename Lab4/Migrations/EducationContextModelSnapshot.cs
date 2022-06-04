@@ -23,19 +23,19 @@ namespace Lab4.Migrations
 
             modelBuilder.Entity("CarPartSeller", b =>
                 {
+                    b.Property<int>("ScPartsId")
+                        .HasColumnType("integer")
+                        .HasColumnName("sc_parts_id");
+
                     b.Property<int>("SellersID")
                         .HasColumnType("integer")
                         .HasColumnName("sellers_id");
 
-                    b.Property<int>("SСPartsId")
-                        .HasColumnType("integer")
-                        .HasColumnName("sс_parts_id");
-
-                    b.HasKey("SellersID", "SСPartsId")
+                    b.HasKey("ScPartsId", "SellersID")
                         .HasName("pk_car_part_seller");
 
-                    b.HasIndex("SСPartsId")
-                        .HasDatabaseName("ix_car_part_seller_sс_parts_id");
+                    b.HasIndex("SellersID")
+                        .HasDatabaseName("ix_car_part_seller_sellers_id");
 
                     b.ToTable("car_part_seller", (string)null);
                 });
@@ -138,19 +138,19 @@ namespace Lab4.Migrations
 
             modelBuilder.Entity("CarPartSeller", b =>
                 {
+                    b.HasOne("Lab4.Data.Models.CarPart", null)
+                        .WithMany()
+                        .HasForeignKey("ScPartsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("fk_car_part_seller_car_parts_sc_parts_id");
+
                     b.HasOne("Lab4.Data.Models.Seller", null)
                         .WithMany()
                         .HasForeignKey("SellersID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired()
                         .HasConstraintName("fk_car_part_seller_sellers_sellers_id");
-
-                    b.HasOne("Lab4.Data.Models.CarPart", null)
-                        .WithMany()
-                        .HasForeignKey("SСPartsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
-                        .HasConstraintName("fk_car_part_seller_car_parts_sс_parts_id");
                 });
 #pragma warning restore 612, 618
         }
