@@ -35,10 +35,10 @@ public class CarPartService
         await _context.SaveChangesAsync();
         return await Task.FromResult(result.Entity);
     }
-
+    
     public async Task<CarPart> GetCarPart(int id)
     {
-        var result = DataSource.GetInstance()._carParts.Find(s => s.Id == id);
+        var result = _context.CarParts.Include(cp=>cp.Sellers).FirstOrDefault(cp => cp.Id==id);
         return await Task.FromResult(result);
     }
 
@@ -47,7 +47,9 @@ public class CarPartService
         var result = await _context.CarParts.Include(p => p.Sellers).ToListAsync();
         return await Task.FromResult(result);
     }
-
+    //BUG Get rid of Id input Rewrite to Lab5
+    //System.InvalidOperationException: The expression '(se.Id == __newCarPart_Id_0)' is invalid inside an 'Include' operation, since it does not represent a property access: 't => t.MyProperty'. To target navigations declared on derived types, use casting ('t => ((Derived)t).MyProperty') or the 'as' operator ('t => (t as Derived).MyProperty'). Collection navigation access can be filtered by composing Where, OrderBy(Descending), ThenBy(Descending), Skip or Take operations. For more information on including related data, see http://go.microsoft.com/fwlink/?LinkID=746393.
+    //at Microsoft.EntityFrameworkCore.Query.Internal.NavigationExpandingExpressionVisitor.<ProcessInclude>g__ExtractIncludeFilter|32_0(Expression currentExpression, Expression includeExpression)
     public async Task<CarPart?> UpdateCarPart(int id, CarPart newCarPart)
     {
         var carPart = await _context.CarParts.Include(se => se.Id == newCarPart.Id).FirstOrDefaultAsync(cp => cp.Id==id);
