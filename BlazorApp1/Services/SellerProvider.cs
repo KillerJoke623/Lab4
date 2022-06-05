@@ -13,19 +13,19 @@ public class SellerProvider:ISellerProvider
     }
     public async Task<List<Seller>> GetAll()
     {
-        return await _client.GetFromJsonAsync<List<Seller>>("/api/carpart");
+        return await _client.GetFromJsonAsync<List<Seller>>("/api/Seller");
     }
 
     public async Task<Seller> GetOne(int id)
     {
-        return await _client.GetFromJsonAsync<Seller>($"/api/carpart/{id}");
+        return await _client.GetFromJsonAsync<Seller>($"/api/Seller/{id}");
     }
     
     public async Task<bool> Add(Seller item)
     {
         string data = JsonConvert.SerializeObject(item);
         StringContent httpContent = new StringContent(data, System.Text.Encoding.UTF8, "application/json");
-        var responce = await _client.PostAsync($"/api/carpart", httpContent);
+        var responce = await _client.PostAsync($"/api/Seller", httpContent);
         return await Task.FromResult(responce.IsSuccessStatusCode);
     }
 
@@ -33,14 +33,14 @@ public class SellerProvider:ISellerProvider
     {
         string data = JsonConvert.SerializeObject(item);
         StringContent httpContent = new StringContent(data, System.Text.Encoding.UTF8, "application/json");
-        var responce = await _client.PutAsync($"/api/carpart", httpContent);
+        var responce = await _client.PutAsync($"/api/Seller", httpContent);
         Seller carPart = JsonConvert.DeserializeObject<Seller>(responce.Content.ReadAsStringAsync().Result);
         return await Task.FromResult(carPart);
     }
 
     public async Task<bool> Remove(int id)
     {
-        var delete = await _client.DeleteAsync($"/api/carpart/${id}");
+        var delete = await _client.DeleteAsync($"/api/Seller/${id}");
 
         return await Task.FromResult(delete.IsSuccessStatusCode);
     }
