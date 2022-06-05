@@ -73,7 +73,7 @@ public class SellerService
         return await Task.FromResult(result);
     }
 
-
+    //BUG don't PUT any changes actually
     public async Task<Seller?> UpdateSeller(int id, Seller newSeller)
     {
         /* Lab4

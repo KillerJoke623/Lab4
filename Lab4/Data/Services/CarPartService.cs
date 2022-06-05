@@ -52,6 +52,7 @@ public class CarPartService
     //at Microsoft.EntityFrameworkCore.Query.Internal.NavigationExpandingExpressionVisitor.<ProcessInclude>g__ExtractIncludeFilter|32_0(Expression currentExpression, Expression includeExpression)
     public async Task<CarPart?> UpdateCarPart(int id, CarPart newCarPart)
     {
+        
         var carPart = await _context.CarParts.Include(se => se.Id == newCarPart.Id).FirstOrDefaultAsync(cp => cp.Id==id);
 
         if (carPart != null)
@@ -60,12 +61,17 @@ public class CarPartService
             carPart.Price = newCarPart.Price;
             carPart.ModelOfAuto = newCarPart.ModelOfAuto;
             carPart.BrandOfAuto = newCarPart.BrandOfAuto;
+            if (newCarPart.Sellers.Any())
+            {
+                carPart.Sellers = _context.Sellers.ToList().IntersectBy(newCarPart.Sellers, carp => carp).ToList();
+            }
+            
             _context.CarParts.Update(carPart);
             _context.Entry(carPart).State = EntityState.Modified;
             await _context.SaveChangesAsync();
             return carPart;
         }
-        return carPart;
+        return null;
     }
 
     public async Task<bool> DeleteCarPart(int id)
