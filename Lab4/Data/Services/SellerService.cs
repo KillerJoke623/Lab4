@@ -17,10 +17,6 @@ public class SellerService
     //BUG The type of navigation 'Seller.ScParts' is '<IntersectByIterator>d__118<CarPart, int>' which does not implement 'ICollection<CarPart>'. Collection navigations must implement 'ICollection<>' of the target type.
     public async Task<Seller> AddSeller(SellerDTO seller)
     {
-        /* Лаб4
-        DataSource.GetInstance()._sellers.Add(seller);
-        return await Task.FromResult(seller);*/
-        
         Seller nSeller = new Seller()
         {
             Fullname = seller.Fullname,
@@ -30,7 +26,7 @@ public class SellerService
         };
         if (seller.SCParts.Any())
         {
-            nSeller.ScParts  = _context.CarParts.ToList().IntersectBy(seller.SCParts, part => part.Id);
+            nSeller.ScParts  = _context.CarParts.ToList().IntersectBy(seller.SCParts, part => part.Id).ToList();
         }
         
         var result = _context.Sellers.Add(nSeller);
@@ -43,11 +39,6 @@ public class SellerService
     //GETs
     public async Task<Seller> GetSeller(int id)
     {
-        /*Lab4
-        var result = DataSource.GetInstance()._sellers.Find(s => s.ID == id);
-        return await Task.FromResult(result);
-        */
-        
         var result = _context.Sellers.Include(s=>s.ScParts).FirstOrDefault(sel => sel.ID==id);
     
         return await Task.FromResult(result);
@@ -56,9 +47,6 @@ public class SellerService
 
     public async Task<List<Seller>> GetSellers()
     {
-        //Lab4
-        //return await Task.FromResult(DataSource.GetInstance()._sellers);
-        
         var result = await _context.Sellers.Include(a=>a.ScParts).ToListAsync();
         return await Task.FromResult(result);
 
@@ -76,18 +64,6 @@ public class SellerService
     //BUG don't PUT any changes actually
     public async Task<Seller?> UpdateSeller(int id, Seller newSeller)
     {
-        /* Lab4
-        var seller = DataSource.GetInstance()._sellers.FirstOrDefault(se => se.ID == newSeller.ID);
-
-        if (seller != null)
-        {
-            seller.Fullname = newSeller.Fullname;
-            seller.Position = newSeller.Position;
-            seller.Grade = newSeller.Grade;
-            seller.NumOfSales = newSeller.NumOfSales;
-        }
-        return seller;
-        */
         var seller = await _context.Sellers.Include(sel=>sel.ScParts).FirstOrDefaultAsync(se => se.ID == id);
         if (seller != null)
         {

@@ -57,7 +57,7 @@ public class CarPartService
             carPart.BrandOfAuto = newCarPart.BrandOfAuto;
             if (newCarPart.Sellers.Any())
             {
-                carPart.Sellers = _context.Sellers.ToList().IntersectBy(newCarPart.Sellers, carp => carp).ToList();
+                carPart.Sellers = _context.Sellers.ToList().IntersectBy(newCarPart.Sellers, sel => sel).ToList();
             }
             
             _context.CarParts.Update(carPart);

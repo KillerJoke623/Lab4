@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Lab4.Data.DTO;
+using Microsoft.AspNetCore.Mvc;
 using Lab4.Data.Models;
 using Lab4.Data.Services;
 
@@ -52,7 +53,7 @@ public class CustomerController : ControllerBase
     
     //Post add customer
     [HttpPost]
-    public async Task<ActionResult<Customer>> PostCustomer([FromBody] Customer customer)
+    public async Task<ActionResult<Customer>> PostCustomer([FromBody] CustomerDTO customer)
     {
         var result = await _contextCu.AddCustomer(customer);
         if (result==null)

@@ -1,4 +1,5 @@
-﻿using Lab4.Data.Models;
+﻿using Lab4.Data.DTO;
+using Lab4.Data.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace Lab4.Data.Services;
@@ -10,15 +11,12 @@ public class CustomerService
     {
         _context = context;
     }
-    //TODO create DTO of Customer to get rid of input id
-    public async Task<Customer> AddCustomer(Customer customer)
+    
+    public async Task<Customer> AddCustomer(CustomerDTO customer)
     {
-        /*
-        DataSource.GetInstance()._customers.Add(customer);
-        return await Task.FromResult(customer);*/
         Customer nCustomer = new Customer()
         {
-            FullName = customer.FullName,
+            FullName = customer.Fullname,
             Grade = customer.Grade,
         };
         var result = _context.Customers.Add(nCustomer);
@@ -28,10 +26,7 @@ public class CustomerService
 
     public async Task<Customer> GetCustomer(int id)
     {
-        /*
-        var result = DataSource.GetInstance()._customers.Find(s => s.ID == id);
-        return await Task.FromResult(result);*/
-        var result = _context.Customers.FirstOrDefault(sel => sel.ID==id);
+        var result = _context.Customers.FirstOrDefault(cu => cu.ID==id);
     
         return await Task.FromResult(result);
     }
@@ -45,7 +40,7 @@ public class CustomerService
 
     public async Task<Customer?> UpdateCustomer(int id, Customer newCustomer)
     {
-        var customer = DataSource.GetInstance()._customers.FirstOrDefault(se => se.ID == newCustomer.ID);
+        var customer = await _context.Customers.FirstOrDefaultAsync(cu => cu.ID == id);;
 
         if (customer != null)
         {
