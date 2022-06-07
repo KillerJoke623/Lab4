@@ -3,7 +3,7 @@ using BlazorApp1.Data.Models;
 using Newtonsoft.Json;
 
 namespace BlazorApp1.Services;
-//TODO links with Swagger api don't works
+
 public class CarPartsProvider:ICarPartProvider
 {
     private HttpClient _client;

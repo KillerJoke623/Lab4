@@ -1,6 +1,7 @@
 ﻿@page "/CarPart/{СarPartId}"
 @using BlazorApp1.Services
 
+
 @code {
     [Parameter]
     public string CarPartId { get; set; }
@@ -36,39 +37,44 @@
         </div>
         <div class="field">
             <label class="label">Цена</label> <input class="form-control valueField" type="text" value="@CurrentCarPart.Price" aria-label="Disabled input example" disabled readonly>
-            </div>
+        </div>
     </div>
-    <h3>Продавцы</h3>
-    <table class="table">
-        <thead>
-        <th >ФИО</th>
-        <th >Звание</th>
-        <th >Оценка</th>
-        <th>Количество продаж</th>
-        <th>Детали</th>
-        </thead>
-        <tbody>
-        @foreach (var sel in CurrentCarPart.Sellers)
-        {
-            <tr >
-                <td>@sel.Fullname</td>
-                <td>@sel.Position</td>
-                <td>@sel.NumOfSales</td>
-                <td>@sel.Grade</td>
-                <td>
-                    <div class="selCarParts">
-                        @foreach (var selCarPart in CarParts)
-                        {
-                            if (selCarPart.Sellers.Any(x => x.ID == sel.ID))
+    @if (CurrentCarPart.Sellers != null)
+    {
+        <h3>Продавцы</h3>
+        <table class="table">
+            <thead>
+            <th >ФИО</th>
+            <th >Звание</th>
+            <th >Оценка</th>
+            <th>Количество продаж</th>
+            <th>Детали</th>
+            </thead>
+            <tbody>
+            @foreach (var sel in CurrentCarPart.Sellers)
+            {
+                <tr >
+                    <td>@sel.Fullname</td>
+                    <td>@sel.Position</td>
+                    <td>@sel.NumOfSales</td>
+                    <td>@sel.Grade</td>
+                    <td>
+                        <div class="selCarParts">
+                            @foreach (var selCarPart in CarParts)
                             {
-                                <span class="carPartTag">@selCarPart.Name</span>
+                                if (selCarPart.Sellers.Any(x => x.ID == sel.ID))
+                                {
+                                    <span class="carPartTag">@selCarPart.Name</span>
+                                }
                             }
-                        }
-                    </div >
-                </td>
-            </tr>
-        }
-        </tbody>
-    </table>
+                        </div >
+                    </td>
+                </tr>
+                
+            }
+            </tbody>
+        </table>
+    }
     
+
 }

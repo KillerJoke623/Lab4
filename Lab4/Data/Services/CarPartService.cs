@@ -12,7 +12,7 @@ public class CarPartService
         _context = context;
     }
     
-    public async Task<CarPart> AddCarPart(CarPartDTO carPart)
+    public async Task<CarPart?> AddCarPart(CarPartDTO carPart)
     {
         CarPart nCarPart = new CarPart()
         {
@@ -31,7 +31,7 @@ public class CarPartService
         return await Task.FromResult(result.Entity);
     }
     
-    public async Task<CarPart> GetCarPart(int id)
+    public async Task<CarPart?> GetCarPart(int id)
     {
         var result = _context.CarParts.Include(cp=>cp.Sellers).FirstOrDefault(cp => cp.Id==id);
         return await Task.FromResult(result);
