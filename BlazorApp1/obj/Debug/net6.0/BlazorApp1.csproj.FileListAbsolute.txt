@@ -808,10 +808,7 @@ C:\Users\Gleb\RiderProjects\Lab4\BlazorApp1\obj\Debug\net6.0\build-gz\2hiirbno.g
 C:\Users\Gleb\RiderProjects\Lab4\BlazorApp1\obj\Debug\net6.0\blazor.boot.json
 C:\Users\Gleb\RiderProjects\Lab4\BlazorApp1\obj\Debug\net6.0\staticwebassets.build.json
 C:\Users\Gleb\RiderProjects\Lab4\BlazorApp1\obj\Debug\net6.0\staticwebassets.development.json
-C:\Users\Gleb\RiderProjects\Lab4\BlazorApp1\obj\Debug\net6.0\scopedcss\Components\CarPartsList\CarPartsList.razor.rz.scp.css
-C:\Users\Gleb\RiderProjects\Lab4\BlazorApp1\obj\Debug\net6.0\scopedcss\Pages\CarPart.razor.rz.scp.css
 C:\Users\Gleb\RiderProjects\Lab4\BlazorApp1\obj\Debug\net6.0\scopedcss\Shared\MainLayout.razor.rz.scp.css
-C:\Users\Gleb\RiderProjects\Lab4\BlazorApp1\obj\Debug\net6.0\scopedcss\Shared\NavMenu.razor.rz.scp.css
 C:\Users\Gleb\RiderProjects\Lab4\BlazorApp1\obj\Debug\net6.0\scopedcss\bundle\BlazorApp1.styles.css
 C:\Users\Gleb\RiderProjects\Lab4\BlazorApp1\obj\Debug\net6.0\scopedcss\projectbundle\BlazorApp1.bundle.scp.css
 C:\Users\Gleb\RiderProjects\Lab4\BlazorApp1\obj\Debug\net6.0\BlazorApp1.csproj.CopyComplete

@@ -1,0 +1,123 @@
+@page "/CarPart/{СarPartId}"
+@using BlazorApp1.Services
+
+
+@code {
+    [Parameter]
+    public string CarPartId { get; set; }
+    
+    public List<Data.Models.CarPart> CarParts { get; set; }
+    public Data.Models.CarPart? CurrentCarPart { get; set; }
+    
+    [Inject]
+    private ICarPartProvider сarPartProvider { get; set; }
+    
+    protected async override Task OnInitializedAsync()
+    {
+        CurrentCarPart = await сarPartProvider.GetOne(Int32.Parse(CarPartId));
+        
+        CarParts = await сarPartProvider.GetAll();
+        Console.WriteLine(CurrentCarPart);
+        base.OnInitialized();
+    }
+}
+
+<head>
+ <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/corustyle.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #354D73;">
+  <div class="container-fluid">
+      <h2 class="menu"><a class="navbar-brand" href="index.html">4ur</a></h2>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <h2 class="menu"><a class="nav-link" aria-current="page" href="index.html">Главная</a></h2>
+        </li>
+        <li class="nav-item">
+          <h2 class="menu"><a class="nav-link" href="catalog.html">Каталог</a></h2>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+    
+    <div class="p-2">
+  
+    <h1 class="display-6">@CurrentCarPart.Name</h1>
+
+    <p class="h4">Краткое описание товара</p>
+    
+    <p class="shortDesc">Контрактная запчасть из Японии. Снята с рабочей аукционной машины
+    Пробег по Японии около 100 тыс. км
+    Без пробега по России</p>
+
+    <p class="h4">Описание товара</p>
+      <p class="longDesc">БУ ориганальная деталь BMW</p>
+      
+    </div>
+    
+
+
+<p class="h4">Характеристики товара</p>
+
+<ul class="listC">
+  <li class="listitemC">Марка: @CurrentCarPart.BrandOfAuto;</li>
+  <li class="listitemC">Модель: @CurrentCarPart.ModelOfAuto;</li>
+  <li class="listitemC">Кузов: E53</li>
+      
+</ul>
+
+@if (CurrentCarPart.Sellers != null)
+    {
+        <h3>Продавцы</h3>
+        <table class="table">
+            <thead>
+            <th >ФИО</th>
+            <th >Звание</th>
+            <th >Оценка</th>
+            <th>Количество продаж</th>
+            <th>Детали</th>
+            </thead>
+            <tbody>
+            @foreach (var sel in CurrentCarPart.Sellers)
+            {
+                <tr >
+                    <td>@sel.Fullname</td>
+                    <td>@sel.Position</td>
+                    <td>@sel.NumOfSales</td>
+                    <td>@sel.Grade</td>
+                    <td>
+                        <div class="selCarParts">
+                            @foreach (var selCarPart in CarParts)
+                            {
+                                if (selCarPart.Sellers.Any(x => x.ID == sel.ID))
+                                {
+                                    <span class="carPartTag">@selCarPart.Name</span>
+                                }
+                            }
+                        </div >
+                    </td>
+                </tr>
+                
+            }
+            </tbody>
+        </table>
+    }
+
+    
+</body>

@@ -12,4 +12,12 @@
         <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Components\CarPart" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="Components\CarPartsList\CarPartsList.razor" />
+    </ItemGroup>
+
 </Project>
