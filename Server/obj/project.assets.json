@@ -10038,11 +10038,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Gleb\\RiderProjects\\Lab4\\Lab4\\Lab4.csproj",
-      "projectName": "Lab4",
-      "projectPath": "C:\\Users\\Gleb\\RiderProjects\\Lab4\\Lab4\\Lab4.csproj",
+      "projectUniqueName": "C:\\Users\\Gleb\\RiderProjects\\Lab4\\Server\\Server.csproj",
+      "projectName": "Server",
+      "projectPath": "C:\\Users\\Gleb\\RiderProjects\\Lab4\\Server\\Server.csproj",
       "packagesPath": "C:\\Users\\Gleb\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Gleb\\RiderProjects\\Lab4\\Lab4\\obj\\",
+      "outputPath": "C:\\Users\\Gleb\\RiderProjects\\Lab4\\Server\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Gleb\\AppData\\Roaming\\NuGet\\NuGet.Config"

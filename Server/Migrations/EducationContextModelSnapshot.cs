@@ -2,7 +2,6 @@
 using Lab4.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,10 +10,9 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Lab4.Migrations
 {
     [DbContext(typeof(EducationContext))]
-    [Migration("20220604204306_Update")]
-    partial class Update
+    partial class EducationContextModelSnapshot : ModelSnapshot
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -42,7 +40,7 @@ namespace Lab4.Migrations
                     b.ToTable("car_part_seller", (string)null);
                 });
 
-            modelBuilder.Entity("Lab4.Data.Models.CarPart", b =>
+            modelBuilder.Entity("Server.Data.Models.CarPart", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -77,7 +75,7 @@ namespace Lab4.Migrations
                     b.ToTable("car_parts", (string)null);
                 });
 
-            modelBuilder.Entity("Lab4.Data.Models.Customer", b =>
+            modelBuilder.Entity("Server.Data.Models.Customer", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
@@ -103,7 +101,7 @@ namespace Lab4.Migrations
                     b.ToTable("customers", (string)null);
                 });
 
-            modelBuilder.Entity("Lab4.Data.Models.Seller", b =>
+            modelBuilder.Entity("Server.Data.Models.Seller", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
@@ -140,14 +138,14 @@ namespace Lab4.Migrations
 
             modelBuilder.Entity("CarPartSeller", b =>
                 {
-                    b.HasOne("Lab4.Data.Models.CarPart", null)
+                    b.HasOne("Server.Data.Models.CarPart", null)
                         .WithMany()
                         .HasForeignKey("ScPartsId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired()
                         .HasConstraintName("fk_car_part_seller_car_parts_sc_parts_id");
 
-                    b.HasOne("Lab4.Data.Models.Seller", null)
+                    b.HasOne("Server.Data.Models.Seller", null)
                         .WithMany()
                         .HasForeignKey("SellersID")
                         .OnDelete(DeleteBehavior.Cascade)

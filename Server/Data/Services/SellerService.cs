@@ -87,7 +87,7 @@ public class SellerService
 
     public async Task<bool> DeleteSeller(int id)
     {
-        /*Lab4
+        /*Server
         var seller = DataSource.GetInstance()._sellers.FirstOrDefault(s => s.ID == id);
         if (seller != null)
         {
