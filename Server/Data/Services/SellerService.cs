@@ -14,7 +14,6 @@ public class SellerService
     }
     
     //POST
-    //BUG The type of navigation 'Seller.ScParts' is '<IntersectByIterator>d__118<CarPart, int>' which does not implement 'ICollection<CarPart>'. Collection navigations must implement 'ICollection<>' of the target type.
     public async Task<Seller> AddSeller(SellerDTO seller)
     {
         Seller nSeller = new Seller()
@@ -61,7 +60,7 @@ public class SellerService
         return await Task.FromResult(result);
     }
 
-    //BUG don't PUT any changes actually
+    
     public async Task<Seller?> UpdateSeller(int id, Seller newSeller)
     {
         var seller = await _context.Sellers.Include(sel=>sel.ScParts).FirstOrDefaultAsync(se => se.ID == id);
@@ -87,16 +86,6 @@ public class SellerService
 
     public async Task<bool> DeleteSeller(int id)
     {
-        /*Server
-        var seller = DataSource.GetInstance()._sellers.FirstOrDefault(s => s.ID == id);
-        if (seller != null)
-        {
-            DataSource.GetInstance()._sellers.Remove(seller);
-            return true;
-        }
-
-        return false;
-        */
         var seller = await _context.Sellers.FirstOrDefaultAsync(se => se.ID == id);
         if (seller != null)
         {

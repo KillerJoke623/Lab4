@@ -18,6 +18,5 @@ public class CarPart
     
     
     public IEnumerable<Seller> Sellers { get; set; }
-    //[MaybeNull]
-    //public IEnumerable<Customer> Customers { get; set; }
+    
 }
